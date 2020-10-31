@@ -1,0 +1,12 @@
+Unidirectional - When only one entity in relation knows about other.For eg items in Cart know to which cart it belongs but cart does not know which items are in cart
+BiDirectional - When both entities know about each other
+
+A unidirectional relationship has only an owning side. The owning side of a relationship determines how the Persistence run time makes updates to the relationship in the database.
+A bidirectional relationship has both an owning side and an inverse side.
+
+Some Rules in case of Bidirectional Mapping:
+1)The inverse side of a bidirectional relationship must refer to its owning side(Entity which contains the foreign key) by using the mappedBy element of the @OneToOne, @OneToMany, or @ManyToMany annotation. The mappedBy element designates the property or field in the entity that is the owner of the relationship.
+2)@ManyToOne side should never have mappedBy property
+3)For @OneToOne bidirectional relationships, the owning side corresponds to the side that contains @JoinColumn i.e the corresponding foreign key.
+4)For @ManyToMany bidirectional relationships, either side may be the owning side
+5)If @OneToMany/@ManyToOne doesn’t have a mirroring @ManyToOne/@OneToMany association respectively on the child side then, the @OneToMany/@ManyToOne association is unidirectional.

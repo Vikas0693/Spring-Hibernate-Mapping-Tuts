@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -32,7 +33,7 @@ public class User {
 	
 	//user is the variable name in Holdings
 	@OneToMany(mappedBy="user")
-	@Column
+	@Column(name="USERID12")
 	private List<Holdings> holdings;
 	
 	public int getId() {

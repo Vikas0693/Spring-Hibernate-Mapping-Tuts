@@ -18,7 +18,7 @@ public class Holdings {
 	private Double units,buyNav; 
 	
 	@ManyToOne
-	@JoinColumn(name="userId", nullable=false)
+	@JoinColumn(name="USERID123")//UPPERCASE will be converted to lowercase in db column name
 	User user;
 
 	public Long getId() {
