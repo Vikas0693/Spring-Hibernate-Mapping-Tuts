@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 public class Holdings {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
 	private Long id;
 	private Double units,buyNav; 
@@ -52,6 +52,10 @@ public class Holdings {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Holdings [id=" + id + ", units=" + units + ", buyNav=" + buyNav + "]";
+	}
 	
 }
