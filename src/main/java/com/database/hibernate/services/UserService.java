@@ -1,6 +1,7 @@
 package com.database.hibernate.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
@@ -22,7 +23,10 @@ public class UserService {
 	
 	public List<User> getUserDetails(){
 		Session s = factory.createEntityManager().unwrap(Session.class);
-		List<User> u = s.createQuery("from User").list();
+		System.out.println("Last Accessed at = "+new Date());
+		//use setHint("org.hibernate.cacheable", true) if using EntityManager to set query as cacheable
+		//remember use_query_cache is also set in application.properties.
+		List<User> u = s.createQuery("from User").setCacheable(true).list();
 		s.close();
 		return u;
 	}

@@ -31,7 +31,7 @@ public class SecondLevelCacheRunner implements CommandLineRunner{
 	
 	public void run(String... args) throws Exception {
 		//verifySecondLevelCacheAcrossSession();
-		verifySecondLevelCacheAcrossEntityManager();
+		//verifySecondLevelCacheAcrossEntityManager();
 	}
 	
 	private void verifySecondLevelCacheAcrossSession() {
