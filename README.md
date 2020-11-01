@@ -5,4 +5,11 @@ Commit - 72fff926:OneToMany Bidirectional Mapping where @ManyToOne is Owning sid
 	In next mapping we will see the inconsistency of making @OneToMany as owning relation of mapping.
 	what is mappedBy property in @OneToMany - This tells Hibernate that the other side of the association is responsible for managing the relationship, in other words the side where the entity represents the table that contains the foreign key value.Also without mappedBy JPA executes 2 sql queries of insert and update but with it, JPA executes only one insert query.
 
-Commit - 
+Commit - 0f561fb70551:Show power of Lazy Loading.Run Main class and look for 'failed to lazily initialize the collection'
+
+Commit - :Showing Power of Second Level Cache with EhCache provider On Non-Query select statement like entityManager.find() or session.get();
+	Enable Second level Cache by doing 2 things.Adding @Cachebale and @Cache on Entity to be cachebale and enabling secondLevel cache by adding 2 properties in app.properties file.
+	To Use EhCache we have used EhCacheRegionFactory in app.properties.
+	To set custom config of ehCache create ehcache.xml is resource folder from where spring by default reads all properties configuration. See comments if we want to change name of ehcache.xml to something else.
+	To demostrate just run the application.We have set maxIdleTime for cache entity to 10sec so change it in Thread.sleep() in SecondLevelCacheRunner.verifySecondLevelCacheAcrossEntityManager()
+	

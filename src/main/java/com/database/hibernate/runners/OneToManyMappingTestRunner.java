@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 import com.database.hibernate.models.Holdings;
 import com.database.hibernate.models.User;
 
-@Component
 public class OneToManyMappingTestRunner implements CommandLineRunner{
 
 	@Autowired

@@ -1,7 +1,9 @@
 package com.database.hibernate.models;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-public class User {
+@Cacheable//although @Cacheable does not do much here but it is a good practise to do it.
+@org.hibernate.annotations.Cache(usage=CacheConcurrencyStrategy.READ_WRITE,region="user")
+public class User implements Serializable{
 
 	@Id
 	@Column
@@ -34,6 +40,7 @@ public class User {
 	//user is the variable name in Holdings
 	@OneToMany(mappedBy="user")
 	@Column(name="USERID12")
+	@JsonIgnore
 	private List<Holdings> holdings;
 	
 	public int getId() {
