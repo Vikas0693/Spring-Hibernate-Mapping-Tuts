@@ -15,7 +15,7 @@ Commit - 40278e243:Showing Power of Second Level Cache with EhCache provider On 
 	In ehcache.xml <defaultCache> element is mandatory & is used when no region is defined.<Cache> element is used for those entities for which region is defined(see User.class).There is another element diskStore which stores caches on harddisk when primary mem. overflows for eg. <diskStore path="java.io.tmpdir/ehcache" />.timeToLiveSeconds attribute is no. of seconds cache waits till it again fetches the cached entity from DB.So in our case Cache will hit DB after 20 seconds and gets updated Data.To prove that hit /list with 20 second of interval from postman.
 	Resource of Secondlevel found on 'https://www.journaldev.com/2980/hibernate-ehcache-hibernate-second-level-cache' and 'https://www.baeldung.com/hibernate-second-level-cache'
 	 
-Commit - : Enabling Query Cache with some imp. points
+Commit - 0424c30c: Enabling Query Cache with some imp. points
 	Set spring.jpa.properties.hibernate.cache.use_query_cache to true and use .setHint("org.hibernate.cacheable", true) on createQuery("") returnType which is Query on EntityManager.When using Session then set setCacheable(true) on Query.
 	Only id's of entities which are returned from cachebale query are stored in cache.
 	There is one entry in cache for each parameter binding in query.So query with lots of params are not good for caching.
